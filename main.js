@@ -65,19 +65,22 @@ function playGame(){
 
     }
 
-    while(human_score<5 && computer_score<5)
+
+    
+    let buttons = document.querySelectorAll("button");
+
+    for(let i=0;i<buttons.length;i++)
     {
-        const computerSelection = getComputerChoice();
-        
-        let rock_button = document.querySelector("#rock");
-        let paper_button = document.querySelector("#paper");
-        let scissors_button = document.querySelector("#scissors");
-
-        rock_button.addEventListener("click",playRound("rock",computerSelection));
-        paper_button.addEventListener("click",playRound("paper",computerSelection));
-        scissors_button.addEventListener("click",playRound("scissors",computerSelection));
-
+        buttons[i].addEventListener("click",()=>
+        {
+            let result_section = document.querySelector(".display-results");
+            new_element = document.createElement("div");
+            new_element.textContent = playRound(buttons[i].id,getComputerChoice());  
+            result_section.append(new_element);
+        })
     }
+
+    
         
 
     if(human_score == computer_score){

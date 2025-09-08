@@ -1,9 +1,19 @@
 ul {
     list-style-type: none;
+    padding:0;
+
+}
+
+li{
+    margin: 30px;
 }
 
 button
 {
     border-radius: 5px;
-    
+
+}
+
+.display-results{
+    margin:30px;
 }
