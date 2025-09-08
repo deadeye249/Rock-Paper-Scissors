@@ -81,7 +81,6 @@ function playGame(){
     }
 
     
-        
 
     if(human_score == computer_score){
         return "The game is a tie!";
