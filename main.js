@@ -64,11 +64,11 @@ function playGame(){
 
     }
 
-    for(let i=0;i<5;i++){
+    
         const humanSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection,computerSelection);
-    }
+    
 
     if(human_score == computer_score){
         return "The game is a tie!";
