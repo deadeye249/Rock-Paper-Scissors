@@ -17,3 +17,8 @@ button
 .display-results{
     margin:30px;
 }
+
+.base{
+    display: flex;
+    align-items:flex-start;
+}

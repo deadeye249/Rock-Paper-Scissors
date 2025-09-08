@@ -68,29 +68,48 @@ function playGame(){
 
     
     let buttons = document.querySelectorAll("button");
+    let player_scoreboard = document.querySelector(".player-score");
+    let computer_scoreboard = document.querySelector(".computer-score");
+    let result_section = document.querySelector(".display-results");
+    let scoreboard = document.querySelector(".score-board")
 
     for(let i=0;i<buttons.length;i++)
     {
         buttons[i].addEventListener("click",()=>
         {
-            let result_section = document.querySelector(".display-results");
-            new_element = document.createElement("div");
-            new_element.textContent = playRound(buttons[i].id,getComputerChoice());  
-            result_section.append(new_element);
+            if(human_score<5 && computer_score<5)
+            {
+                new_element = document.createElement("div");
+                new_element.textContent = playRound(buttons[i].id,getComputerChoice());  
+                result_section.append(new_element);
+                player_scoreboard.textContent = String(human_score);
+                computer_scoreboard.textContent = String(computer_score);
+            }
+            else if(human_score == 5)
+            {
+                new_element = document.createElement("div");
+                new_element.style.margin = "30px";
+                new_element.textContent = "Player has won!";
+                scoreboard.append(new_element);
+                player_scoreboard.textContent = String(0);
+                computer_scoreboard.textContent = String(0);
+                result_section.replaceChildren();
+                human_score = computer_score = 0;
+            }
+            else
+            {
+                new_element = document.createElement("div");
+                new_element.style.margin = "30px";
+                new_element.textContent = "Computer has won!";
+                scoreboard.append(new_element);
+                player_scoreboard.textContent = String(0);
+                computer_scoreboard.textContent = String(0);
+                result_section.replaceChildren();
+                human_score = computer_score = 0;
+            }
         })
     }
 
-    
-
-    if(human_score == computer_score){
-        return "The game is a tie!";
-    }
-    else if(human_score>computer_score){
-        return "You win!";
-    }
-    else{
-        return "You lose!";
-    }
 }
 
 playGame();
