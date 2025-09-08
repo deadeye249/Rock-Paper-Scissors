@@ -1,8 +1,9 @@
-function getPlayerChoice()
-{
-    let choice = prompt("Please enter your choice: ");
-    return choice;
-}
+// function getPlayerChoice()
+// {
+
+//     let choice = prompt("Please enter your choice: ");
+//     return choice;
+// }
 
 function getComputerChoice()
 {
@@ -64,11 +65,20 @@ function playGame(){
 
     }
 
-    
-        const humanSelection = getPlayerChoice();
+    while(human_score<5 && computer_score<5)
+    {
         const computerSelection = getComputerChoice();
-        playRound(humanSelection,computerSelection);
-    
+        
+        let rock_button = document.querySelector("#rock");
+        let paper_button = document.querySelector("#paper");
+        let scissors_button = document.querySelector("#scissors");
+
+        rock_button.addEventListener("click",playRound("rock",computerSelection));
+        paper_button.addEventListener("click",playRound("paper",computerSelection));
+        scissors_button.addEventListener("click",playRound("scissors",computerSelection));
+
+    }
+        
 
     if(human_score == computer_score){
         return "The game is a tie!";
